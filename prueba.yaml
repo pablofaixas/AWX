@@ -1,0 +1,10 @@
+---
+- hosts: rhel
+  gather_facts: yes
+  tasks:
+    - name: lists
+      shell: ls -la /
+      when: ansible_facts.distribution == 'Ubuntu'
+    - name: debug
+      debug:
+        msg: "{{ ansible_facts.distribution }}"
